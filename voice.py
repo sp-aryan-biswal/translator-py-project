@@ -11,14 +11,14 @@ recognizer = sr.Recognizer()
 with sr.Microphone() as source:
     print("Speak Now!")
     voice = recognizer.listen(source)
-    text = recognizer.recognize_google(voice, language="en")
+    text = recognizer.recognize_google(voice, language="en") # Change language code for input language (to see codes, run line 7)
 
     print(text)
 
 translator = gtrans.Translator()
-translation = translator.translate(text, dest="ru")
+translation = translator.translate(text, dest="ru") # Change language code for output language (to see codes, run line 7)
 print(translation.text)
 
-converted_audio = tts.gTTS(translation.text, lang="ru")
+converted_audio = tts.gTTS(translation.text, lang="ru") # Change language code for output language (to see codes, run line 7)
 converted_audio.save("translated.mp3")
 play.playsound("translated.mp3")
